@@ -1,13 +1,13 @@
 // Importera Express för att kunna skapa en webbserver och Mongoose för att interagera med MongoDB-databasen.
 import express from "express"
 import mongoose from "mongoose"
-
+import apiRegister from "./apiRegister.js"
 
 // Skapar en instans av Express-appen, detta är vår webbserver.
 const server = express()
 
 // Bestämmer vilken port som servern ska lyssna på.
-const port = 3000
+const port = 3001
 
 /*
   Servern använder en middleware ( express.json() ) för att omvandla våra request till JSON.
@@ -24,6 +24,7 @@ server.use(express.json())
     Databasnamnet (Optional) - <DB-Name>
 */
 mongoose.connect("mongodb+srv://neby:neby123@cluster0.rsjx5gd.mongodb.net/")
+
 /*
   Byt ut connection-string'en med er egna. Ni hittar er på MongoDB Atlas genom att gå in på: 
 
@@ -36,26 +37,7 @@ mongoose.connect("mongodb+srv://neby:neby123@cluster0.rsjx5gd.mongodb.net/")
 
   OBS. Glöm inte ändra <password> !
 */
-
-// Skapar ett schema för "users", vilket definierar strukturen för varje "user"-dokument i databasen.
-const usersSchema = new mongoose.Schema({
-  username: String  // Varje "user" kommer att ha ett "username".
-});
-
-/* 
-  Skapar en Mongoose-modell baserat på usersSchema.
-  Detta tillåter oss att skapa, läsa, uppdatera, och ta bort (CRUD) dokument i vår "users"-collection.
-*/
-const User = mongoose.model('users', usersSchema);
-
-/*
-  Skapar en GET - route på '/api/users'. 
-  När denna route anropas, hämtar den alla dokument från vår "users"-collection och skickar tillbaka dem som en JSON-response.
-*/
-server.get('/api/users', async (req, res) => {
-  res.json(await User.find());  // Använder Mongoose's "find"-metod för att hämta alla "users".
-});
-
+apiRegister(server, mongoose)
 /* 
   Startar servern så att den lyssnar på den definierade porten.
   När servern har startat, loggas ett meddelande till konsolen.
