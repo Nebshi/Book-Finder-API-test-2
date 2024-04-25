@@ -2,12 +2,12 @@ import { faker } from '@faker-js/faker';
 import mongoose from 'mongoose';
 import User from "./model/Users.js";
 
-console.log("Start seeding databse!")
+console.log("Start seeding database!")
 
 async function seedDB() {
   try {
-    mongoose.connect("mongodb+srv://linus:qwerty123456@cluster0.ng8b2fk.mongodb.net/PVT23-SeedData")
-    const usersList = await createUsers(3)
+    mongoose.connect("mongodb+srv://neby:neby123@cluster0.rsjx5gd.mongodb.net/PVT23")
+    const usersList = await createUsers(10)
     console.log("UsersList - ", usersList)
   } catch (error) {
     console.log(`Errormessage: ${error}`)
