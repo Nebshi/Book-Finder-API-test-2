@@ -1,11 +1,12 @@
 // Importera Express för att kunna skapa en webbserver och Mongoose för att interagera med MongoDB-databasen.
 import express from "express"
+import rateLimit from "express-rate-limit"
 import mongoose from "mongoose"
-import apiRegister from "./apiRegister.js"
+import apiRegister from "./apiRegister.js";
 
 // Skapar en instans av Express-appen, detta är vår webbserver.
 const server = express()
-
+console.log("Server is starting...");
 // Bestämmer vilken port som servern ska lyssna på.
 const port = 3001
 
@@ -15,15 +16,25 @@ const port = 3001
 */
 server.use(express.json())
 
+
+server.use(express.json())
+
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: "Too many request from this IP, please try again in an 15 minutes."
+});
+
+server.use("/api", limiter);
 /* 
   Vår MongoDB Atlas connection-string
-  Ansluter till MongoDB-databasen med hjälp av Mongoose.
+  An sluter till MongoDB-databasen med hjälp av Mongoose.
   Strängen innehåller: 
     Användarnamn - <Username>
     Lösenord - <Password>
     Databasnamnet (Optional) - <DB-Name>
 */
-mongoose.connect("mongodb+srv://neby:neby123@cluster0.rsjx5gd.mongodb.net/Bookfinder")
+mongoose.connect("mongodb+srv://neby:neby123@cluster0.rsjx5gd.mongodb.net/BookFinder")
 
 /*
   Byt ut connection-string'en med er egna. Ni hittar er på MongoDB Atlas genom att gå in på: 

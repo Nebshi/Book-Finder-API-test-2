@@ -12,8 +12,10 @@
 
 # Set up environment variables: 
    Create a .env file in the root directory and define any necessary environment variables such as database connection strings or API keys.
+
 # Start the server: 
    Run npm start to start the server. By default, the server will run on port 3000, but you can specify a different port using the PORT environment variable.
+   
 # Explore the API: 
    Once the server is running, you can explore the API endpoints using tools like Postman or by making HTTP requests directly from your application.
 

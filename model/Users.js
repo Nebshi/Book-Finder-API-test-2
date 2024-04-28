@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+
 // Skapar ett schema för "users", vilket definierar strukturen för varje "user"-dokument i databasen.
 const usersSchema = new mongoose.Schema({
   username: String, // Varje "user" kommer att ha ett "username".

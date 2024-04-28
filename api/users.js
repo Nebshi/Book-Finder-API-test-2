@@ -1,4 +1,8 @@
-import User from "./model/Users.js";
+import User from "../model/Users.js";
+import express from 'express'
+
+
+const server = express();
 
 export default function (server, mongoose) {
 

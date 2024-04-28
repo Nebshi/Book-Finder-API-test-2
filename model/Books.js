@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+
 // Skapa ett schema för böcker
 const bookSchema = new mongoose.Schema({
   title: String,

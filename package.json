@@ -1,17 +1,19 @@
 {
   "name": "book-finder-api-",
   "version": "1.0.0",
-  "description": "",
+  "description": "Welcome to the Book Finder API! This API provides a platform for users to search for books based on various criteria such as title, author, genre, and publication date. Whether you're a book enthusiast, librarian, or developer building book-related applications, this API offers comprehensive functionality to meet your needs.",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
     "faker": "^6.6.6",
     "mongoose": "^8.3.2",
     "nodemon": "^3.1.0"

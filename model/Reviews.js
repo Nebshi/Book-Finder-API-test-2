@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 // Skapa ett schema för Reviews, vilket definierar strukturen för varje recensionsdokument i databasen.
 const reviewSchema = new mongoose.Schema({
   userId: {

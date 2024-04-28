@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+
+
 // Skapa ett schema för kategorier
 const categorySchema = new mongoose.Schema({
   name: String,

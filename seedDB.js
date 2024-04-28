@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import Category from './model/Category.js'; // Importera Category-modellen
-import { faker } from '@faker-js/faker'; // Importera faker för att generera slumpmässiga värden
+import { faker } from '@faker-js/faker';// Importera faker för att generera slumpmässiga värden
 
 console.log("Start seeding database!");
 
