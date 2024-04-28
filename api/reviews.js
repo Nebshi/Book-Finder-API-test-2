@@ -1,4 +1,4 @@
-import Review from "./model/Reviews.js";
+import Review from "../model/Review.js"; 
 
 export default function (server, mongoose) {
 

@@ -1,4 +1,4 @@
-import Category from "./model/Category.js";
+import Category from "../model/Category.js"; 
 
 export default function (server, mongoose) {
 
